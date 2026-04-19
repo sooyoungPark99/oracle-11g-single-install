@@ -42,9 +42,12 @@ VM을 중지 후 설정에서 프로세서를 CPU 1개로 변경
 
 <img width="766" height="512" alt="image" src="https://github.com/user-attachments/assets/1c199cda-99ed-4f07-9e98-2600aca1f624" />
 
-리눅스를 시작한다.
+#### DB 접속 및 사용자 계정 활성화
 
 <img width="1277" height="795" alt="image" src="https://github.com/user-attachments/assets/8867c9a9-1c7a-4d9c-a1c0-5d8ca25fb55e" />
+
+- oracle 유저로 전환 후 sqlplus로 DB 접속을 확인한다.
+- HR, SH 계정의 잠금을 해제하고 비밀번호를 재설정해준다.
 
 ```sql
 [root@edydr1p0 ~]# su - oracle
