@@ -1,13 +1,5 @@
 # Oracle 11g Single Instance 설치
 
-### 설치 방식
-
-본 가이드는 교육용으로 제공된 OVA 이미지를 VirtualBox에 가져와 Oracle 11g 환경을 구성하는 방식으로 진행했다.
-
-- OVA 이미지: 교육 과정에서 제공된 사전 구성 이미지 사용
-- Oracle 11g 공식 설치 파일: [https://www.oracle.com/database/technologies/oracle-database-software-downloads.html](https://www.oracle.com/database/technologies/oracle-database-software-downloads.html)
-
----
 
 ### 1. 11g 이미지 준비 및 가져오기
 
