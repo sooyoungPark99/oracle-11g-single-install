@@ -1,38 +1,58 @@
-# Oracle 11g Single Instance 설치
-
-교육 과정에서 제공된 OVA 이미지를 VirtualBox에 가져와
-Oracle 11g 환경을 구성하는 방식으로 진행했습니다.
-
-- OVA 이미지: 교육 과정에서 제공된 사전 구성 이미지 사용
-- Oracle 11g 공식 설치 파일:
-  https://www.oracle.com/database/technologies/oracle-database-software-downloads.html
-
+# Oracle 11g Single Instance 설치 (Linux 6.8)
+ 
+Oracle Enterprise Linux 6.8 환경에서 Oracle 11g Release 2 Single Instance 설치 가이드입니다.
+ 
 ---
-
-### 환경 구성
-
+ 
+#### 환경 구성
+ 
 | 항목 | 내용 |
 |------|------|
-| OS | Oracle Linux (32-bit) |
-| DB 버전 | Oracle Database 11g Release 2 (11.2.0.1.0) |
-| 가상화 | VirtualBox 7.0.18 |
-| CPU | 1Core |
-| 메모리 | 2048MB |
-
+| OS | Oracle Enterprise Linux 6.8 |
+| DB 버전 | Oracle Database 11g Release 2 |
+| DB 이름 | orcl11g |
+| 가상화 | VirtualBox 7.2 |
+| 메모리 | 8GB |
+| CPU | 4Core |
+ 
 ---
-
-### 설치 가이드
-
-- [Oracle 11g Single Instance 설치](./Oracle%2011g%20Single%20Instance%20%EC%84%A4%EC%B9%98.md)
-
+ 
+#### 서버 구성
+ 
+| VM 이름 | 호스트 이름 | IP | 넷마스크 | 게이트웨이 | DNS |
+|---------|-----------|-----|---------|----------|-----|
+| oracle11g | ora11 | 192.168.18.21 | 255.255.0.0 | 192.168.0.1 | 8.8.8.8 |
+ 
 ---
-
-### 주요 작업 내용
-
-- OVA 이미지를 VirtualBox에 가져와 VM 환경 구성
-- CPU 1개, I/O APIC 설정 수정으로 부팅 오류 해결
-- 포트 포워딩 설정으로 호스트-게스트 간 네트워크 연결 구성
-- sqlplus를 통한 DB 접속 확인
-- HR, SH 계정 잠금 해제 및 비밀번호 재설정
-
-
+ 
+#### 설치 파일
+ 
+- [Oracle 11g 설치 파일 다운로드](https://www.oracle.com/database/technologies/xe-prior-release-downloads.html)
+  - V100000-01_1of2.zip
+  - V100000-01_2of2.zip
+---
+ 
+#### 설치 순서
+ 
+| 순서 | 내용 |
+|------|------|
+| 1 | VM 생성 및 기본 사양 설정 |
+| 2 | Oracle Linux 6.8 설치 |
+| 3 | MobaXterm / PuTTY SSH 접속 |
+| 4 | Oracle 설치 사전 환경 설정 |
+| 5 | oracle 유저 환경변수 설정 |
+| 6 | 설치 파일 업로드 및 압축 해제 |
+| 7 | X11 환경 설정 |
+| 8 | runInstaller 실행 |
+| 9 | root 스크립트 실행 |
+| 10 | DB 생성 (DBCA) |
+ 
+---
+ 
+#### 주요 특징
+ 
+- Oracle Enterprise Linux 6.8 기반 실습 환경 구성
+- Standard Partition 방식으로 스토리지 구성
+- X11 Forwarding을 활용한 GUI 설치 환경 구성
+- NetCA 실패 시 수동 리스너 생성 방법 포함
+- 실제 설치 중 발생한 오류 및 해결 방법 포함
